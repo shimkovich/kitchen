@@ -1,6 +1,8 @@
 # kitchen.json — the spec format
 
-One kitchen = one `projects/<id>/kitchen.json`. The viewer (`index.html?p=<id>`)
+One piece of work = one `projects/<id>/kitchen.json` — a kitchen, a wardrobe,
+anything else the father draws; the file keeps its name whatever it holds.
+The viewer (`index.html?p=<id>`)
 builds the blockout from it; nothing else holds geometry. All sizes are
 millimetres.
 
@@ -96,7 +98,9 @@ Module fields:
 | `tall` | base run only: a tall unit (`defaults.tall`), no worktop over it |
 | `h`, `d`, `bottom` | overrides of height, depth, wall-unit bottom |
 | `doors` | vertical front divisions (default 1) |
-| `drawers` | horizontal front divisions (default 0) |
+| `drawers` | horizontal front divisions into equal parts (default 0) |
+| `rows` | horizontal front divisions as explicit heights bottom-up, e.g. `[790, 1630]`; must fill the front area, and replaces `drawers` |
+| `rail` | tall module only: a cover strip of this height at the top, above the fronts (the `planka` of a floor-to-ceiling unit) |
 | `front` | material key for this module's front |
 | `fixture` | `sink`, `hob`, `oven` (base or tall), `hood` (wall run) |
 | `fixtureBottom` | oven: height of its underside |
@@ -105,6 +109,14 @@ Module fields:
 
 A wall-run `hood` module defaults to bottom `wall.bottom + 100`, height 600,
 depth 350; `bottom`, `h`, `d` and `material` override.
+
+A floor-to-ceiling cupboard or wardrobe is one `tall` module as wide as the
+whole carcass, not one module per front: `doors` splits its width so the
+columns read as fronts of a single body rather than separate cabinets, while
+one module per column would leave a gap between each. `h` is the overall
+height, `defaults.base.plinth` the strip at the floor (with `plinthInset: 0`
+for a flush one), `rail` the strip under the ceiling, and `rows` the front
+heights in between. `projects/k01` is one.
 
 ## boxes
 

@@ -1,0 +1,30 @@
+{
+  "name": "Шкаф для одежды 1600×2480 с полкой слева",
+  "room": { "width": 2300, "depth": 4400, "height": 2480, "walls": ["back", "left"] },
+  "defaults": { "base": { "plinth": 30, "plinthInset": 0 } },
+  "materials": {
+    "fronts": { "color": "#edebe8", "desc": "matte white raised-panel MDF fronts, classic filyonka profile" },
+    "plinth": { "color": "#edebe8", "desc": "30 mm cover rail, same matte white as the fronts" },
+    "carcass": { "color": "#e2dfda", "desc": "matte white carcass panels, 16 mm" },
+    "worktop": { "color": "#cdc7bd", "desc": "worktop 40 mm over the open shelf unit, material not chosen yet" },
+    "walls": { "color": "#f4f2ee", "desc": "plain light painted walls" },
+    "floor": { "color": "#c9b79c", "desc": "light oak floor" }
+  },
+  "runs": [
+    {
+      "wall": "back", "level": "base", "from": 700,
+      "modules": [
+        { "w": 1600, "tall": true, "h": 2480, "d": 550, "doors": 4, "rail": 30, "rows": [790, 1630], "label": "шкаф" }
+      ]
+    }
+  ],
+  "boxes": [
+    { "x": 0, "y": 0, "z": 0, "w": 16, "h": 820, "d": 350, "material": "carcass" },
+    { "x": 684, "y": 0, "z": 0, "w": 16, "h": 820, "d": 350, "material": "carcass" },
+    { "x": 16, "y": 0, "z": 0, "w": 668, "h": 16, "d": 350, "material": "carcass" },
+    { "x": 16, "y": 334, "z": 0, "w": 668, "h": 16, "d": 350, "material": "carcass", "label": "полка 350" },
+    { "x": 16, "y": 544, "z": 0, "w": 668, "h": 16, "d": 350, "material": "carcass", "label": "полка 560" },
+    { "x": 16, "y": 804, "z": 0, "w": 668, "h": 16, "d": 350, "material": "carcass" },
+    { "x": 0, "y": 820, "z": 0, "w": 700, "h": 40, "d": 350, "material": "worktop", "label": "700×350, h 820\nстолешница 40" }
+  ]
+}

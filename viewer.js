@@ -235,10 +235,25 @@ for (const op of spec.openings || []) {
 
 // --- runs ---------------------------------------------------------------------
 
+// Front divisions: `doors` splits the width evenly; the height is split either
+// by `rows`, a list of explicit heights bottom-up that must fill the front
+// area, or by `drawers` into equal parts.
 function fronts(f, a, w, n, y0, h, m) {
-  const doors = m.doors ?? 1, drawers = m.drawers ?? 0;
+  const doors = m.doors ?? 1;
   for (let k = 1; k < doors; k++) localLine(f, a + (k * w) / doors, y0, a + (k * w) / doors, y0 + h, n);
-  for (let k = 1; k < drawers; k++) localLine(f, a, y0 + (k * h) / drawers, a + w, y0 + (k * h) / drawers, n);
+  if (m.rows) {
+    const sum = m.rows.reduce((s, v) => s + v, 0);
+    if (Math.abs(sum - h) > 1) throw new Error(`rows ${m.rows.join('+')} = ${sum}, front area is ${h}`);
+    let y = y0;
+    for (const r of m.rows) {
+      localLabel(f, String(r), a + 60, y + r / 2, n + 39);
+      y += r;
+      if (y < y0 + h - 1) localLine(f, a, y, a + w, y, n);
+    }
+  } else {
+    const drawers = m.drawers ?? 0;
+    for (let k = 1; k < drawers; k++) localLine(f, a, y0 + (k * h) / drawers, a + w, y0 + (k * h) / drawers, n);
+  }
 }
 
 function oven(f, a, w, n, bottom) {
@@ -264,10 +279,11 @@ function buildBaseRun(run) {
     const w = m.w;
     if (m.tall) {
       closeSeg(a);
-      const th = m.h ?? T.height, td = m.d ?? T.depth;
+      const th = m.h ?? T.height, td = m.d ?? T.depth, rail = m.rail ?? 0;
       localBox(f, a + 2, w - 4, 0, td - B.plinthInset, 0, B.plinth, 'plinth');
       localBox(f, a + 2, w - 4, 0, td, B.plinth, th - B.plinth, m.front || run.tallFront || run.front || 'fronts');
-      fronts(f, a + 2, w - 4, td + 1, B.plinth, th - B.plinth, m);
+      if (rail) localLine(f, a + 2, th - rail, a + w - 2, th - rail, td + 1);
+      fronts(f, a + 2, w - 4, td + 1, B.plinth, th - B.plinth - rail, m);
       if (m.fixture === 'oven') oven(f, a, w, td, m.fixtureBottom ?? 850);
       localLabel(f, `${m.label ? m.label + '\n' : ''}${w}`, a + w / 2, th - 250, td + 40);
     } else {
