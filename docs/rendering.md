@@ -14,12 +14,31 @@ report the failure; do not substitute a drawing.
    `#cam=` are read from it.
 2. **Brief.** `projects/<id>/brief.txt`: materials, finishes, lighting and
    styling in plain English — the `desc` of every material in the spec plus
-   whatever the father added. No geometry in it: geometry comes from the shot.
+   whatever the father added — and `ref:` lines for reference photos (below).
+   No geometry in it: geometry comes from the shot.
 3. **Render.**
    `tools/render.sh out/<id>/<name>.png out/<id>/<name>-render.png projects/<id>/brief.txt [style-ref.png]`
    Takes about a minute; run it with a 10-minute Bash timeout. It prints the
    output path and the seconds taken.
 4. **Send** the render to the chat with `[[image: <path>]]`.
+
+## Reference photos
+
+Photos sent to the chat — a front profile, a stone sample, a handle — are
+saved by the Telegram daemon under `out/inbox/` (`SAVE_IMAGES` in the bot's
+`bot.conf`), and the prompt lists each one's path. To keep one for a kitchen:
+
+1. Copy it to `out/<id>/refs/<what-it-is>.<ext>` (for example
+   `out/k01/refs/front-profile.jpg`). `out/` is git-ignored, which is the
+   point: the repo is public and these may be photos of a client's home.
+2. Add a line to `projects/<id>/brief.txt`:
+   `ref: out/<id>/refs/front-profile.jpg | the cabinet front profile (raised centre panel in a frame)`
+   Also describe the element in words in the brief — the photo shows the look,
+   the words say where it applies.
+
+`render.sh` attaches every `ref:` line as a reference image with an
+instruction to take only that element's look from it. If no kitchen exists
+yet when a reference arrives, ask which kitchen it belongs to.
 
 ## Keeping several angles consistent
 

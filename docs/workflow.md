@@ -9,7 +9,9 @@ dimensions right and a good-looking render to show the client.
 
 The father sends dimensions (room, walls, window and door positions, what
 goes where, module widths) and the material descriptions, as text, a photo of
-a sketch, or a voice note.
+a sketch, or a voice note. Photos of materials and details (a front profile,
+a stone sample) become reference images for the render —
+`docs/rendering.md`, "Reference photos".
 
 - Pick a project id with him: a short neutral slug (`k01`, `uglovaya-3200`).
   **Never a client's name, address or phone** — the repo and the viewer are

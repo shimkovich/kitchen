@@ -4,9 +4,12 @@
 #   tools/render.sh <blockout.png> <out.png> <brief.txt> [style-ref.png]
 #
 # brief.txt holds only the design brief: materials, finishes, lighting, styling.
-# The geometry invariants live here, so every render gets the same ones. The
-# optional style-ref is an approved render of the same kitchen, passed so a new
-# angle keeps the same materials. See docs/rendering.md.
+# A brief line `ref: <path> | <what it shows>` attaches a reference photo of
+# one element (a front profile, a stone sample); the path is relative to the
+# repo root or absolute. The geometry invariants live here, so every render
+# gets the same ones. The optional style-ref is an approved render of the same
+# kitchen, passed so a new angle keeps the same materials. See
+# docs/rendering.md.
 #
 # Codex is called by absolute path: the bot runs under launchd, whose PATH has
 # no ~/.local/bin. image_gen runs on the ChatGPT login in ~/.codex, so no API
@@ -36,20 +39,40 @@ if [ -e "$out" ]; then
 fi
 
 images=("$blockout")
-ref_line=""
+roles=""
 if [ -n "$ref" ]; then
   images+=("$ref")
-  ref_line="Image 2 is a style reference only: an approved render of the same kitchen from another angle. Match its materials, colours, finishes and lighting exactly; take nothing about geometry or camera from it."
+  roles="Image ${#images[@]} is a style reference only: an approved render of the same kitchen from another angle. Match its materials, colours, finishes and lighting exactly; take nothing about geometry or camera from it."
 fi
+trim() {
+  local s="$1"
+  s="${s#"${s%%[![:space:]]*}"}"
+  printf '%s' "${s%"${s##*[![:space:]]}"}"
+}
+while IFS= read -r line; do
+  spec="${line#ref:}"
+  path="$(trim "${spec%%|*}")"
+  what="$(trim "${spec#*|}")"
+  [ "$spec" = "${spec#*|}" ] && what="a detail reference"
+  case "$path" in /*) ;; *) path="$ROOT/$path" ;; esac
+  if [ ! -f "$path" ]; then
+    echo "brief references a missing file: $path" >&2
+    exit 2
+  fi
+  images+=("$(realpath "$path")")
+  roles="${roles}
+Image ${#images[@]} is a reference photo of ${what}. Use it only for how that element looks — profile, texture, colour; take nothing about geometry, layout or camera from it."
+done < <(grep -E '^ref:' "$brief" || true)
+design="$(grep -v -E '^ref:' "$brief" || true)"
 
 prompt="Use the imagegen skill with the built-in image_gen tool, edit mode (use case: sketch-to-render).
 Image 1 is the edit target: a grey-box 3D blockout of a kitchen built from exact measurements.
-${ref_line}
+${roles}
 Turn image 1 into a photorealistic interior photograph for a client presentation.
 Keep exactly as in image 1: camera position, angle, lens and framing; the room shape; every cabinet's position, width, height and depth; the number of cabinets and the door and drawer divisions shown by the seam lines; the positions of the hob, sink, hood, tall units, windows and doors; the worktop line. Do not add, remove, merge or resize any cabinet or appliance. Flat cabinet fronts in the blockout get the front finish from the brief.
 
 Design brief:
-$(cat "$brief")
+${design}
 
 No people, no text, no labels, no dimension marks, no watermark.
 When the image is ready, copy the generated file to ${out} and reply with that path only.
