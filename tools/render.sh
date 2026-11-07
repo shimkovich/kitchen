@@ -7,8 +7,9 @@
 # A brief line `ref: <path> | <what it shows>` attaches a reference photo of
 # one element (a front profile, a stone sample); the path is relative to the
 # repo root or absolute. The geometry invariants live here, so every render
-# gets the same ones. The optional style-ref is an approved render of the same
-# kitchen, passed so a new angle keeps the same materials. See
+# gets the same ones. The style-ref is an approved render of the same kitchen,
+# passed so a new angle keeps the same materials; give it as the fourth
+# argument, or write it into the brief once as `style: <path>`. See
 # docs/rendering.md.
 #
 # Codex is called by absolute path: the bot runs under launchd, whose PATH has
@@ -38,17 +39,34 @@ if [ -e "$out" ]; then
   exit 2
 fi
 
+trim() {
+  local s="$1"
+  s="${s#"${s%%[![:space:]]*}"}"
+  printf '%s' "${s%"${s##*[![:space:]]}"}"
+}
+
+# The approved render lives under out/, which is git-ignored, so a `style:`
+# line in the brief is the only record of which one it is.
+if [ -z "$ref" ]; then
+  style="$(trim "$(grep -E '^style:' "$brief" | tail -1 || true)")"
+  if [ -n "$style" ]; then
+    style="$(trim "${style#style:}")"
+    case "$style" in /*) ;; *) style="$ROOT/$style" ;; esac
+    if [ ! -f "$style" ]; then
+      echo "brief names a style reference that is gone: $style" >&2
+      echo "re-render an approved angle, or drop the style: line" >&2
+      exit 2
+    fi
+    ref="$(realpath "$style")"
+  fi
+fi
+
 images=("$blockout")
 roles=""
 if [ -n "$ref" ]; then
   images+=("$ref")
   roles="Image ${#images[@]} is a style reference only: an approved render of the same kitchen from another angle. Match its materials, colours, finishes and lighting exactly; take nothing about geometry or camera from it."
 fi
-trim() {
-  local s="$1"
-  s="${s#"${s%%[![:space:]]*}"}"
-  printf '%s' "${s%"${s##*[![:space:]]}"}"
-}
 while IFS= read -r line; do
   spec="${line#ref:}"
   path="$(trim "${spec%%|*}")"
@@ -63,7 +81,7 @@ while IFS= read -r line; do
   roles="${roles}
 Image ${#images[@]} is a reference photo of ${what}. Use it only for how that element looks — profile, texture, colour; take nothing about geometry, layout or camera from it."
 done < <(grep -E '^ref:' "$brief" || true)
-design="$(grep -v -E '^ref:' "$brief" || true)"
+design="$(grep -v -E '^(ref|style):' "$brief" || true)"
 
 prompt="Use the imagegen skill with the built-in image_gen tool, edit mode (use case: sketch-to-render).
 Image 1 is the edit target: a grey-box 3D blockout of a kitchen built from exact measurements.

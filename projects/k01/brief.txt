@@ -9,4 +9,5 @@ Walls and ceiling: plain white paint, evenly lit, the same white everywhere. Flo
 The doorway stands on the same wall as the wardrobe, at the far left: a plain white painted door, flush or with a shallow panel, in a simple white frame, closed.
 Lighting: bright, flat, shadowless daylight. The wardrobe casts no shadow on the wall or the floor; the wall beside it and the wall behind the shelf unit stay evenly white, with no darker band anywhere. Any shading in the grey-box image is to be ignored.
 Styling: empty — nothing on the shelves or the worktop.
+style: out/k01/view9-render.png
 ref: projects/k01/refs/front-profile.jpg | the exact shape of a front — how wide the flat border is, the bevel and recessed margin inside it, the step and bevel around the raised panel, and how much of the front that panel takes up. Reproduce that shape; ignore its colour

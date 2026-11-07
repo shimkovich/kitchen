@@ -58,8 +58,20 @@ lines in that one brief.
 
 Each call invents materials afresh, so two angles of the same kitchen can
 come out with different stone veining or a different blue. Once the father
-approves one render, pass it as the fourth argument for every further angle:
-it is sent as a style reference with instructions to copy finishes only.
+approves one render — "отлично", "то что нужно", "оставляем" — record it in
+the brief:
+
+    style: out/<id>/<name>-render.png
+
+`render.sh` then sends it with every further angle as a style reference, with
+instructions to copy finishes only and nothing about geometry or camera. The
+fourth argument does the same thing for one call and wins over the line.
+
+The approved render sits under `out/`, which is git-ignored, so the `style:`
+line is the only record of which one it was; if the file is gone the script
+says so rather than quietly rendering without it. When the father changes a
+colour or a material, the approved render is out of date — drop or replace
+the line before rendering, or the old colour comes back.
 
 ## What the script guarantees
 
