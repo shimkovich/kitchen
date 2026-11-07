@@ -37,8 +37,27 @@ saved by the Telegram daemon under `out/inbox/` (`SAVE_IMAGES` in the bot's
    the words say where it applies.
 
 `render.sh` attaches every `ref:` line as a reference image with an
-instruction to take only that element's look from it. If no kitchen exists
-yet when a reference arrives, ask which kitchen it belongs to.
+instruction to take only that element's look from it.
+
+### Standing references
+
+A reference that holds for every kitchen, not one of them — the front profile
+the father builds in — lives in `out/refs/` instead, and its `ref:` line is
+copied into each new brief. A `ref:` path is resolved from the repo root, so
+the same file serves any project. These are the ones in use:
+
+- `out/refs/front-profile.jpg` — the standard front profile. Brief lines:
+
+      Fronts: classic raised-panel MDF, milled from one sheet — a wide flat
+      frame around a raised centre panel, a stepped bevel from the frame down
+      into the panel field and a soft chamfer around the raised panel itself.
+      Matte white with a faint satin sheen, paint-like, no visible edge
+      banding, outer edges softly eased. Drawer fronts carry the same profile
+      in a short version.
+      ref: out/refs/front-profile.jpg | the cabinet front profile (raised centre panel in a stepped frame, matte white)
+
+`out/` is git-ignored, so a standing reference lives on this machine only: if
+it is lost, ask for the photo again.
 
 ## Keeping several angles consistent
 
