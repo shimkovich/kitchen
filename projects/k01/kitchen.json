@@ -1,6 +1,6 @@
 {
   "name": "Шкаф для одежды 1600×2480 с полкой слева",
-  "room": { "width": 3600, "depth": 4400, "height": 2480, "walls": ["back", "left"], "ceiling": true },
+  "room": { "width": 2300, "depth": 4400, "height": 2480, "walls": ["back", "left", "right"], "ceiling": true },
   "defaults": { "base": { "plinth": 30, "plinthInset": 0 } },
   "openings": [
     { "type": "door", "wall": "left", "from": 600, "width": 900, "height": 2100 }
