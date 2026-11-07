@@ -1,12 +1,12 @@
 A fitted wardrobe filling a niche in a plain light room, wall to wall: a wall hard against its right end, the open shelf unit and the left wall at its left. It is floor to ceiling: the strip along its top meets the ceiling with no gap above it, and the room has no more height than the wardrobe.
-Fronts: classic raised-panel MDF, milled from one sheet — a wide flat frame around a raised centre panel, a stepped bevel from the frame down into the panel field and a soft chamfer around the raised panel itself. Matte very light beige — almost white, just a soft warm tint that reads against the white walls, no yellow and no cream — with a faint satin sheen, paint-like, no visible edge banding, outer edges softly eased. The reference photo shows the profile only; take the colour from this text, not from the photo.
+Fronts: classic raised-panel MDF, milled from one sheet. Copy the shape from the reference photo exactly, in this order from the outside in: a flat border about 65 mm wide along the edge of the front; a bevel sloping down from it; a flat recessed margin; then the raised centre panel, which takes up most of the front — its edge a narrow square step, then a flat bevel sloping up, then a large flat centre field. Crisp machine-milled edges, each step and bevel reading as its own line. Matte very light beige — almost white, just a soft warm tint that reads against the white walls, no yellow and no cream — with a faint satin sheen, paint-like, no visible edge banding, outer edges softly eased. The reference photo shows the profile only; take the colour from this text, not from the photo.
 Each of the four short lower fronts carries one raised panel. Each of the four tall fronts above carries two raised panels stacked, of equal height.
-The 30 mm strips at the floor and under the ceiling are flat, no profile, in the same matte warm off-white.
-Open shelf unit on the left: 16 mm carcass panels in the same matte warm off-white, open front, two shelves.
+The 30 mm strips at the floor and under the ceiling are flat, no profile, in the same matte very light beige.
+Open shelf unit on the left: 16 mm carcass panels in the same matte very light beige, open front, two shelves.
 Worktop over the shelf unit: 40 mm, material not chosen yet — show a plain light stone-look top with a square edge.
 No handles.
 Walls and ceiling: plain white paint, evenly lit, the same white everywhere. Floor: light oak.
 The doorway stands on the same wall as the wardrobe, at the far left: a plain white painted door, flush or with a shallow panel, in a simple white frame, closed.
 Lighting: bright, flat, shadowless daylight. The wardrobe casts no shadow on the wall or the floor; the wall beside it and the wall behind the shelf unit stay evenly white, with no darker band anywhere. Any shading in the grey-box image is to be ignored.
 Styling: empty — nothing on the shelves or the worktop.
-ref: projects/k01/refs/front-profile.jpg | the cabinet front profile only — the raised centre panel in a stepped frame; its colour is not the colour to use
+ref: projects/k01/refs/front-profile.jpg | the exact shape of a front — how wide the flat border is, the bevel and recessed margin inside it, the step and bevel around the raised panel, and how much of the front that panel takes up. Reproduce that shape; ignore its colour
