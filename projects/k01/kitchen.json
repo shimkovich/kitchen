@@ -7,9 +7,9 @@
   ],
   "materials": {
     "door": { "color": "#cfc9bf", "desc": "plain white painted interior door in a simple white frame" },
-    "fronts": { "color": "#efe8d9", "desc": "matte light beige raised-panel MDF fronts, classic filyonka profile" },
-    "plinth": { "color": "#efe8d9", "desc": "30 mm cover rail, same matte light beige as the fronts" },
-    "carcass": { "color": "#eae2d1", "desc": "matte light beige carcass panels, 16 mm" },
+    "fronts": { "color": "#f5f1e8", "desc": "matte very light beige raised-panel MDF fronts, classic filyonka profile" },
+    "plinth": { "color": "#f5f1e8", "desc": "30 mm cover rail, same matte very light beige as the fronts" },
+    "carcass": { "color": "#f1ece1", "desc": "matte very light beige carcass panels, 16 mm" },
     "worktop": { "color": "#cdc7bd", "desc": "worktop 40 mm over the open shelf unit, material not chosen yet" },
     "walls": { "color": "#fcfcfc", "desc": "plain white painted walls and ceiling" },
     "floor": { "color": "#c9b79c", "desc": "light oak floor" }
