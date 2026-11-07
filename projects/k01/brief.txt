@@ -1,11 +1,11 @@
 A fitted wardrobe, floor to ceiling, standing in a plain light room.
-Fronts: classic raised-panel MDF, milled from one sheet — a wide flat frame around a raised centre panel, a stepped bevel from the frame down into the panel field and a soft chamfer around the raised panel itself. Matte white with a faint satin sheen, paint-like, no visible edge banding, outer edges softly eased.
+Fronts: classic raised-panel MDF, milled from one sheet — a wide flat frame around a raised centre panel, a stepped bevel from the frame down into the panel field and a soft chamfer around the raised panel itself. Matte ivory — a warm creamy off-white, RAL 1013 / 9001, not pure white and not yellow — with a faint satin sheen, paint-like, no visible edge banding, outer edges softly eased. The reference photo shows the profile only; take the colour from this text, not from the photo.
 Each of the four short lower fronts carries one raised panel. Each of the four tall fronts above carries two raised panels stacked, of equal height.
-The 30 mm strips at the floor and under the ceiling are flat, no profile, in the same matte white.
-Open shelf unit on the left: 16 mm carcass panels in the same matte white, open front, two shelves.
+The 30 mm strips at the floor and under the ceiling are flat, no profile, in the same matte ivory.
+Open shelf unit on the left: 16 mm carcass panels in the same matte ivory, open front, two shelves.
 Worktop over the shelf unit: 40 mm, material not chosen yet — show a plain light stone-look top with a square edge.
 No handles.
 Walls: plain light paint. Floor: light oak.
 Lighting: soft even daylight, calm, no hard shadows.
 Styling: empty — nothing on the shelves or the worktop.
-ref: projects/k01/refs/front-profile.jpg | the cabinet front profile (raised centre panel in a stepped frame, matte white)
+ref: projects/k01/refs/front-profile.jpg | the cabinet front profile only — the raised centre panel in a stepped frame; its colour is not the colour to use
