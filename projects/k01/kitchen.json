@@ -1,9 +1,9 @@
 {
   "name": "Шкаф для одежды 1600×2480 с полкой слева",
-  "room": { "width": 2300, "depth": 4400, "height": 2480, "walls": ["back", "left", "right"], "ceiling": true },
+  "room": { "width": 3500, "depth": 4400, "height": 2480, "walls": ["back", "left", "right"], "ceiling": true },
   "defaults": { "base": { "plinth": 30, "plinthInset": 0 } },
   "openings": [
-    { "type": "door", "wall": "left", "from": 600, "width": 900, "height": 2100 }
+    { "type": "door", "wall": "back", "from": 0, "width": 900, "height": 2100 }
   ],
   "materials": {
     "door": { "color": "#cfc9bf", "desc": "plain white painted interior door in a simple white frame" },
@@ -16,19 +16,19 @@
   },
   "runs": [
     {
-      "wall": "back", "level": "base", "from": 700,
+      "wall": "back", "level": "base", "from": 1900,
       "modules": [
         { "w": 1600, "tall": true, "h": 2480, "d": 550, "doors": 4, "rail": 30, "rows": [790, 1630], "label": "шкаф" }
       ]
     }
   ],
   "boxes": [
-    { "x": 0, "y": 0, "z": 0, "w": 16, "h": 820, "d": 350, "material": "carcass" },
-    { "x": 684, "y": 0, "z": 0, "w": 16, "h": 820, "d": 350, "material": "carcass" },
-    { "x": 16, "y": 0, "z": 0, "w": 668, "h": 16, "d": 350, "material": "carcass" },
-    { "x": 16, "y": 334, "z": 0, "w": 668, "h": 16, "d": 350, "material": "carcass", "label": "полка 350" },
-    { "x": 16, "y": 544, "z": 0, "w": 668, "h": 16, "d": 350, "material": "carcass", "label": "полка 560" },
-    { "x": 16, "y": 804, "z": 0, "w": 668, "h": 16, "d": 350, "material": "carcass" },
-    { "x": 0, "y": 820, "z": 0, "w": 700, "h": 40, "d": 350, "material": "worktop", "label": "700×350, h 820\nстолешница 40" }
+    { "x": 1200, "y": 0, "z": 0, "w": 16, "h": 820, "d": 350, "material": "carcass" },
+    { "x": 1884, "y": 0, "z": 0, "w": 16, "h": 820, "d": 350, "material": "carcass" },
+    { "x": 1216, "y": 0, "z": 0, "w": 668, "h": 16, "d": 350, "material": "carcass" },
+    { "x": 1216, "y": 334, "z": 0, "w": 668, "h": 16, "d": 350, "material": "carcass", "label": "полка 350" },
+    { "x": 1216, "y": 544, "z": 0, "w": 668, "h": 16, "d": 350, "material": "carcass", "label": "полка 560" },
+    { "x": 1216, "y": 804, "z": 0, "w": 668, "h": 16, "d": 350, "material": "carcass" },
+    { "x": 1200, "y": 820, "z": 0, "w": 700, "h": 40, "d": 350, "material": "worktop", "label": "700×350, h 820\nстолешница 40" }
   ]
 }
