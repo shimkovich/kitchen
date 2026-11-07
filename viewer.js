@@ -218,10 +218,13 @@ function updateLabelVisibility() {
   // on for furniture that reaches the ceiling: without it a shot shows bare
   // background above the wall and the render invents a taller room.
   if (ROOM.ceiling) {
-    const c = new THREE.Mesh(new THREE.PlaneGeometry(mm(W), mm(DP)), mat(ROOM.ceilingMaterial || wallKey));
+    // Unlit: a downward normal catches only the hemisphere light's ground
+    // colour, and a grey ceiling in the shot becomes a grey ceiling in the
+    // render.
+    const m = new THREE.MeshBasicMaterial({ color: color(ROOM.ceilingMaterial || wallKey) });
+    const c = new THREE.Mesh(new THREE.PlaneGeometry(mm(W), mm(DP)), m);
     c.rotation.x = Math.PI / 2;
     c.position.set(mm(W / 2), mm(H), mm(DP / 2));
-    c.receiveShadow = true;
     scene.add(c);
     occluders.push(c);
   }
