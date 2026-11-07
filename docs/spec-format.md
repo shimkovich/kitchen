@@ -34,8 +34,11 @@ position `from`: the distance from that wall's start corner, which is the
 }
 ```
 
-`room` may also carry `wallMaterial`, `floorMaterial` (material keys) and
-`walls` (which of the four to draw; default all four).
+`room` may also carry `wallMaterial`, `floorMaterial`, `ceilingMaterial`
+(material keys), `walls` (which of the four to draw; default all four) and
+`ceiling` (draw one; default off). Switch the ceiling on for furniture that
+reaches it: otherwise a shot taken from low down shows bare background above
+the wall and the render puts the ceiling higher than the cupboard.
 
 ## defaults
 

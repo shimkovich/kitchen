@@ -214,6 +214,17 @@ function updateLabelVisibility() {
     const len = f.u[0] ? W : DP;
     localPlane(f, 0, len, 0, H, 0, wallKey);
   }
+  // Faces down, so a camera above it looks straight through. Worth switching
+  // on for furniture that reaches the ceiling: without it a shot shows bare
+  // background above the wall and the render invents a taller room.
+  if (ROOM.ceiling) {
+    const c = new THREE.Mesh(new THREE.PlaneGeometry(mm(W), mm(DP)), mat(ROOM.ceilingMaterial || wallKey));
+    c.rotation.x = Math.PI / 2;
+    c.position.set(mm(W / 2), mm(H), mm(DP / 2));
+    c.receiveShadow = true;
+    scene.add(c);
+    occluders.push(c);
+  }
   label(`ширина ${W}`, W / 2, H - 120, 40);
   label(`глубина ${DP}`, 40, H - 120, DP / 2);
   label(`высота ${H}`, 120, H / 2 + 600, 40);
