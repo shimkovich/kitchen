@@ -1,6 +1,6 @@
 {
   "name": "Шкаф для одежды 1600×2480 с полкой слева",
-  "room": { "width": 2300, "depth": 4400, "height": 2480, "walls": ["back", "left"] },
+  "room": { "width": 3600, "depth": 4400, "height": 2480, "walls": ["back", "left"] },
   "defaults": { "base": { "plinth": 30, "plinthInset": 0 } },
   "materials": {
     "fronts": { "color": "#f2eee2", "desc": "matte warm off-white raised-panel MDF fronts, classic filyonka profile" },
