@@ -1,0 +1,2 @@
+Fronts: classic raised-panel MDF, milled from one sheet — a wide flat frame around a raised centre panel, a stepped bevel from the frame down into the panel field and a soft chamfer around the raised panel itself. Matte white with a faint satin sheen, paint-like, no visible edge banding, outer edges softly eased. Drawer fronts carry the same profile in a short version.
+ref: projects/k01/refs/front-profile.jpg | the cabinet front profile (raised centre panel in a stepped frame, matte white)

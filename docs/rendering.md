@@ -28,36 +28,31 @@ Photos sent to the chat — a front profile, a stone sample, a handle — are
 saved by the Telegram daemon under `out/inbox/` (`SAVE_IMAGES` in the bot's
 `bot.conf`), and the prompt lists each one's path. To keep one for a kitchen:
 
-1. Copy it to `out/<id>/refs/<what-it-is>.<ext>` (for example
-   `out/k01/refs/front-profile.jpg`). `out/` is git-ignored, which is the
-   point: the repo is public and these may be photos of a client's home.
+1. Copy it next to the kitchen it belongs to (below).
 2. Add a line to `projects/<id>/brief.txt`:
-   `ref: out/<id>/refs/front-profile.jpg | the cabinet front profile (raised centre panel in a frame)`
+   `ref: projects/<id>/refs/front-profile.jpg | the cabinet front profile (raised centre panel in a frame)`
    Also describe the element in words in the brief — the photo shows the look,
    the words say where it applies.
 
 `render.sh` attaches every `ref:` line as a reference image with an
-instruction to take only that element's look from it.
+instruction to take only that element's look from it. A `ref:` path is
+resolved from the repo root.
 
-### Standing references
+### Where a reference lives
 
-A reference that holds for every kitchen, not one of them — the front profile
-the father builds in — lives in `out/refs/` instead, and its `ref:` line is
-copied into each new brief. A `ref:` path is resolved from the repo root, so
-the same file serves any project. These are the ones in use:
+Every reference belongs to one kitchen — a front profile chosen for this
+client is not the next client's. Which folder depends on whether the photo
+can be published, because the repo is public:
 
-- `out/refs/front-profile.jpg` — the standard front profile. Brief lines:
+- A catalogue or sample photo — a front profile, a stone sample, a handle —
+  goes in `projects/<id>/refs/` and is committed, so the brief and the
+  pictures it points at travel together.
+- A photo of a client's home stays in `out/<id>/refs/`, which is git-ignored.
 
-      Fronts: classic raised-panel MDF, milled from one sheet — a wide flat
-      frame around a raised centre panel, a stepped bevel from the frame down
-      into the panel field and a soft chamfer around the raised panel itself.
-      Matte white with a faint satin sheen, paint-like, no visible edge
-      banding, outer edges softly eased. Drawer fronts carry the same profile
-      in a short version.
-      ref: out/refs/front-profile.jpg | the cabinet front profile (raised centre panel in a stepped frame, matte white)
-
-`out/` is git-ignored, so a standing reference lives on this machine only: if
-it is lost, ask for the photo again.
+If no kitchen exists yet when a reference arrives, ask which kitchen it is
+for; if the father has not named it yet, start the project under a
+provisional slug and rename later — a rename is `git mv` plus the `ref:`
+lines in that one brief.
 
 ## Keeping several angles consistent
 

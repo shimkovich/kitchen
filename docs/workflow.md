@@ -17,8 +17,7 @@ a stone sample) become reference images for the render —
   **Never a client's name, address or phone** — the repo and the viewer are
   public.
 - Write `projects/<id>/kitchen.json` (`docs/spec-format.md`) and
-  `projects/<id>/brief.txt` (`docs/rendering.md`) — a new brief starts from
-  the standing references listed there, which already hold for every kitchen.
+  `projects/<id>/brief.txt` (`docs/rendering.md`).
 - Anything missing that changes the geometry — ask. Anything that is a
   standard size (plinth, worktop thickness, wall-unit depth) — use the
   default and say which defaults were used.
