@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Кухня — блокаут</title>
+<link rel="stylesheet" href="viewer.css">
+<script type="importmap">{"imports":{"three":"./vendor/three.module.min.js","three/addons/":"./vendor/"}}</script>
+</head>
+<body>
+<div id="ui">
+  <div id="title"></div>
+  <div id="buttons">
+    <button id="btn-dims">📏 Размеры</button>
+    <button id="btn-top">⬆️ Сверху</button>
+    <button id="btn-reset">↺ Сброс</button>
+    <button id="btn-link">📋 Ссылка на ракурс</button>
+  </div>
+  <div id="toast"></div>
+</div>
+<div id="error"></div>
+<script type="module" src="viewer.js"></script>
+</body>
+</html>

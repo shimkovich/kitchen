@@ -1,0 +1,10 @@
+html, body { margin: 0; height: 100%; overflow: hidden; background: #ddd; font-family: -apple-system, system-ui, sans-serif; }
+canvas { display: block; touch-action: none; }
+#ui { position: fixed; inset: 0; pointer-events: none; }
+#title { position: absolute; top: 8px; left: 10px; font-size: 14px; color: #333; background: rgba(255,255,255,.75); padding: 4px 8px; border-radius: 6px; }
+#buttons { position: absolute; bottom: 12px; left: 0; right: 0; display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; padding: 0 8px; }
+#buttons button { pointer-events: auto; font-size: 15px; padding: 9px 12px; border: 0; border-radius: 10px; background: rgba(255,255,255,.92); box-shadow: 0 1px 4px rgba(0,0,0,.25); }
+#buttons button.on { background: #ffd966; }
+#toast { position: absolute; top: 44px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,.8); color: #fff; padding: 8px 12px; border-radius: 8px; font-size: 14px; display: none; max-width: 90vw; word-break: break-all; pointer-events: auto; }
+#error { position: fixed; top: 40%; left: 5%; right: 5%; color: #900; background: #fff; padding: 12px; border-radius: 8px; display: none; white-space: pre-wrap; }
+body.shot #ui { display: none; }

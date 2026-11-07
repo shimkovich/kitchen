@@ -1,0 +1,50 @@
+{
+  "name": "Пример — угловая кухня 3200×2600",
+  "room": { "width": 3200, "depth": 2600, "height": 2700 },
+  "openings": [
+    { "type": "window", "wall": "back", "from": 2000, "width": 1000, "bottom": 900, "height": 1300 },
+    { "type": "door", "wall": "right", "from": 1500, "width": 800, "height": 2100 }
+  ],
+  "materials": {
+    "fronts": { "color": "#8fa3b0", "desc": "matte grey-blue handleless MDF fronts" },
+    "wallFronts": { "color": "#ece8df", "desc": "warm white matte fronts" },
+    "worktop": { "color": "#55524d", "desc": "dark grey stone-look worktop, 38 mm" },
+    "walls": { "color": "#f2f0ec", "desc": "white painted walls" },
+    "floor": { "color": "#c9b79c", "desc": "light oak laminate floor" }
+  },
+  "runs": [
+    {
+      "wall": "back", "level": "base", "from": 0,
+      "modules": [
+        { "w": 1000, "label": "угловой" },
+        { "w": 600, "fixture": "hob", "drawers": 3, "label": "варка" },
+        { "w": 400, "drawers": 3 },
+        { "w": 800, "fixture": "sink", "doors": 2, "label": "мойка" },
+        { "w": 400 }
+      ]
+    },
+    {
+      "wall": "left", "level": "base", "from": 600,
+      "modules": [
+        { "w": 600, "label": "ПММ" },
+        { "w": 600, "drawers": 3 },
+        { "w": 600, "tall": true, "front": "wallFronts", "label": "холодильник" }
+      ]
+    },
+    {
+      "wall": "back", "level": "wall", "from": 0,
+      "modules": [
+        { "w": 1000, "doors": 2 },
+        { "w": 600, "fixture": "hood" },
+        { "w": 400 }
+      ]
+    },
+    {
+      "wall": "left", "level": "wall", "from": 600,
+      "modules": [
+        { "w": 600 },
+        { "w": 600 }
+      ]
+    }
+  ]
+}
